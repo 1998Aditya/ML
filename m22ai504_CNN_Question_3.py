@@ -312,7 +312,7 @@ a = vgg16_model.output
 a = GlobalAveragePooling2D()(a)
 a = Dense(128, activation='relu')(a)
 predictions = Dense(5, activation='softmax')(a)
-pt_model = tf.keras.Model(inputs=vgg16_model.input, outputs=predictions)
+p_model = tf.keras.Model(inputs=vgg16_model.input, outputs=predictions)
 
 
 # In[75]:
@@ -326,14 +326,14 @@ for layer in pt_model.layers:
 
 
 # Compile the model with categorical crossentropy loss and Adam optimizer
-pt_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+p_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 
 # In[77]:
 
 
 # Print the summary
-pt_model.summary()
+p_model.summary()
 
 
 # In[78]:
